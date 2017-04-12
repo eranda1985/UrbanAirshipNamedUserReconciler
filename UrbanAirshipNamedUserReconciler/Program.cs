@@ -23,7 +23,7 @@ namespace UrbanAirshipNamedUserReconciler
             foreach (var user in result.NamedUsers)
             {
                 // If it's not in Uppser Caese...
-                if (!user.NamedUserId.All(char.IsUpper))
+                if (!user.NamedUserId.All(char.IsLower))
                 {
                     foreach (var channel in user.Channels)
                     {
@@ -61,7 +61,7 @@ namespace UrbanAirshipNamedUserReconciler
             {
                 channel_id = channel.ChannelId,
                 device_type = channel.DeviceType,
-                named_user_id = userId.ToUpper()
+                named_user_id = userId.ToLower()
             };
 
             var requestBody = JsonConvert.SerializeObject(requestBodyObj);
